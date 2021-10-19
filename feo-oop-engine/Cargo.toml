@@ -1,0 +1,44 @@
+[package]
+name = "feo-oop-engine"
+version = "0.0.1"
+authors = ["LittleTitan"]
+edition = "2018"
+
+[dependencies]
+
+# vulkano dependancies
+vulkano = "0.22.0"
+vulkano-shaders = "0.22.0"
+winit = "0.24.0"
+vulkano-win = "0.22.0"
+
+# image io
+png = "0.16.8"
+image = "0.23.14"
+
+# async and multi threading dependancies
+rayon = "1.5.0"
+futures = "0.3.12"
+
+# lazy_static dependancy
+lazy_static = "1.4.0"
+
+# terminal UI dependancies
+terminal_size = "0.1.16"
+colored = "2.0.0"
+
+# math dependancies
+feo-math = { git = "https://github.com/littleTitan/feo-math" }
+
+# macro dependancies
+macro_rules_attribute = "0.0.2"
+global-macro-derive = { path = "./global-macro-derive"}
+child-macro-derive = { path = "./child-macro-derive"}
+parent-macro-derive = { path = "./parent-macro-derive"}
+scriptable-macro-derive = { path = "./scriptable-macro-derive"}
+gameobject-macro-derive = { path = "./gameobject-macro-derive"}
+drawable-macro-derive = { path = "./drawable-macro-derive"}
+named-macro-derive = { path = "./named-macro-derive"}
+
+[profile.release]
+debug = true

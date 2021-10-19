@@ -1,0 +1,10 @@
+[workspace]
+members = [
+    "feo-oop-engine",
+    # "feo-ecs-engine",
+    # "feo-math",
+    "examples",
+]
+
+[profile.release]
+debug = true
