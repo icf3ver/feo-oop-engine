@@ -1,0 +1,18 @@
+# Old Scripts, and Backups
+_junk
+
+# I did not make these.
+assets/example-assets
+
+# Rust
+target
+
+# Work in progress
+about
+
+# ECS engine 
+# Not done
+feo-ecs-engine
+# Math boiler plate
+# see https://github.com/littleTitan/feo-math
+feo-math

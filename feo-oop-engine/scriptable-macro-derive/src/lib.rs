@@ -26,7 +26,7 @@ fn impl_scriptable_macro(ast: &syn::DeriveInput) -> TokenStream {
                         let local_self = this.clone();
                         let local_script = self.script.clone().unwrap();
                         spawner.spawn(async move {
-                            (*local_script.frame).call((local_self, engine_globals)).await
+                            (*local_script.frame)(local_self, engine_globals).await
                         });
                     } else {
                         let s = self.script.as_mut();
@@ -34,7 +34,7 @@ fn impl_scriptable_macro(ast: &syn::DeriveInput) -> TokenStream {
                         let local_self = this.clone();
                         let local_script = self.script.clone().unwrap();
                         spawner.spawn(async move {
-                            (*local_script.start).call((local_self, engine_globals)).await
+                            (*local_script.start)(local_self, engine_globals).await
                         });
                     }
                 }
@@ -57,7 +57,7 @@ fn impl_scriptable_macro(ast: &syn::DeriveInput) -> TokenStream {
                         let local_event = event.clone();
                         if let Some(event_handler) = local_script.event_handler{
                             spawner.spawn(async move {
-                                (*event_handler).call((local_self, engine_globals, local_event)).await
+                                (*event_handler)(local_self, engine_globals, local_event).await
                             });
                         }
                     }

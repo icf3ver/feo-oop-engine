@@ -1,4 +1,4 @@
-use std::{intrinsics::log10f32, io::{Stdout, Write}};
+use std::{io::{Stdout, Write}};
 use colored::*;
 
 pub async fn progress_bar(
@@ -8,8 +8,8 @@ pub async fn progress_bar(
         n: usize, 
         total: usize, 
         terminal_width: usize){
-    let n_digits_total = unsafe{ log10f32(total as f32) } as usize;
-    let n_digits_now = unsafe{ log10f32(n as f32) } as usize;
+    let n_digits_total = f32::log10(total as f32) as usize;
+    let n_digits_now = f32::log10(n as f32) as usize;
     
     if total != n {
         let remaining_space: i32 = terminal_width as i32 - (8 /* Loading: */ + 1 /* */ + file_name.len() + 1 /* */ + 3 /* here */ + 1 /* */ + current_part.len() + 1 /* */ + n_digits_total + 1 /* / */ + n_digits_total + 3 /* */) as i32;

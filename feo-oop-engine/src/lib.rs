@@ -1,7 +1,3 @@
-#![feature(fn_traits)]
-#![feature(core_intrinsics)]
-
-
 #[macro_use] extern crate lazy_static;
 
 #[macro_use] extern crate global_macro_derive;
