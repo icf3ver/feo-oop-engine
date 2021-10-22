@@ -87,7 +87,7 @@ fn main() {
     // Axes visual
     let xyz = Obj::from_obj(
         Some("XYZ"),
-        "assets/standard-assets/models/xyz.obj",
+        "assets/standard-assets/models/debugging/xyz.obj",
         None,
         None,
         None,

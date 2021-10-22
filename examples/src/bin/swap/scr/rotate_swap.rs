@@ -47,7 +47,7 @@ pub async fn start<'r>(this: Arc<RwLock<Obj>>, engine_globals: EngineGlobals) ->
             None,
             Some(Vector3::new( 2.0, 0.0, 2.0)),
             None,
-            None, //Some(Vector3(0.025, 0.025, 0.025)),
+            Some(Vector3(0.025, 0.025, 0.025)),
             true,
             engine_globals,
             None,//Some(Script::new_boxed(Box::pin(start), Box::pin(frame)))

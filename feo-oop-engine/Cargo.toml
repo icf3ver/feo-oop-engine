@@ -1,8 +1,10 @@
 [package]
 name = "feo-oop-engine"
-version = "0.0.2"
+version = "0.0.3"
 authors = ["LittleTitan"]
 edition = "2018"
+
+license = "MIT"
 
 [dependencies]
 
@@ -31,7 +33,6 @@ colored = "2.0.0"
 feo-math = { git = "https://github.com/littleTitan/feo-math" }
 
 # macro dependancies
-macro_rules_attribute = "0.0.2"
 global-macro-derive = { path = "./global-macro-derive"}
 child-macro-derive = { path = "./child-macro-derive"}
 parent-macro-derive = { path = "./parent-macro-derive"}

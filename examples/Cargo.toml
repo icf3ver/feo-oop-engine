@@ -1,16 +1,15 @@
 [package]
 name = "examples"
-version = "0.0.1"
+version = "0.0.3"
 authors = ["LittleTitan"]
 edition = "2018"
 
+license = "MIT"
+
 [dependencies]
 
-# TODO remove the need vulkano imports
-vulkano = "0.22.0"
-vulkano-shaders = "0.22.0"
+# Event handler
 winit = "0.24.0"
-vulkano-win = "0.22.0"
 
 # random dependancy
 rand = "0.8.3"

@@ -134,7 +134,7 @@ fn main() {
         engine.globals.clone()
     ).unwrap();
     engine.scene.write().unwrap().set_main_camera(main_camera.clone());
-    player_container.write().unwrap().add_child(main_camera); // fix
+    player_container.write().unwrap().add_child(main_camera);
 
     let pew_container = Group::new(
         Some("Pew Container"),

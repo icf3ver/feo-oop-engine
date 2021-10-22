@@ -83,7 +83,8 @@ fn main() {
         Some(Script::new_boxed(Box::pin(scr::camera::start), Box::pin(scr::camera::frame), None)),
         engine.globals.clone()
     );
-    engine.scene.write().unwrap().set_main_camera(main_camera.unwrap());
+    engine.scene.write().unwrap().set_main_camera(main_camera.clone().unwrap());
+    engine.scene.write().unwrap().add_child(main_camera.unwrap());
     
     // Axes visual
     let xyz = Obj::from_obj(

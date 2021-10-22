@@ -429,16 +429,13 @@ checksum = "e78d4f1cc4ae33bbfc157ed5d5a5ef3bc29227303d595861deb238fcec4e9457"
 
 [[package]]
 name = "examples"
-version = "0.0.1"
+version = "0.0.3"
 dependencies = [
  "feo-math",
  "feo-oop-engine",
  "global-macro-derive",
  "macro_rules_attribute",
  "rand",
- "vulkano",
- "vulkano-shaders",
- "vulkano-win",
  "winit",
 ]
 
@@ -449,7 +446,7 @@ source = "git+https://github.com/littleTitan/feo-math#d04c92fe8725c9f0c725be49c0
 
 [[package]]
 name = "feo-oop-engine"
-version = "0.0.1"
+version = "0.0.3"
 dependencies = [
  "child-macro-derive",
  "colored",
@@ -460,7 +457,6 @@ dependencies = [
  "global-macro-derive",
  "image",
  "lazy_static",
- "macro_rules_attribute",
  "named-macro-derive",
  "parent-macro-derive",
  "png",
