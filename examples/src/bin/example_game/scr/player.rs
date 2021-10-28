@@ -73,7 +73,7 @@ pub async fn start<'r>(this: Arc<RwLock<Group>>, _: EngineGlobals) -> Swap {
 #[macro_rules_attribute(frame_script!)]
 pub async fn frame<'r>(this: Arc<RwLock<Group>>, engine_globals: EngineGlobals) -> Swap {
     let (pewing, pos, rot) = {
-        let this = this.clone();
+        let this = this;
         let mut this = this.write().unwrap();
         let mut globals = downcast!(*this.get_globals().unwrap(), dyn Global, PlayerGlobals);
         
@@ -115,7 +115,7 @@ pub async fn frame<'r>(this: Arc<RwLock<Group>>, engine_globals: EngineGlobals) 
 
         let mutex = engine_globals.event_loop_proxy;
         let x = mutex.lock().await;
-        let event = Arc::new(super::MyEvent::NewPew(pos, rot)) as Arc<dyn Any + Send + Sync>;
+        let event = Arc::new(super::MyEvent::NewPew(pos, rot)) as Arc<dyn Any + Send + Sync + 'static>;
         x.send_event(UserEvent::UserEvent(event)).unwrap();
     }
  
