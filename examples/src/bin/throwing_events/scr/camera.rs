@@ -59,7 +59,8 @@ pub async fn frame<'r>(this: Arc<RwLock<FpvCamera>>, engine_globals: EngineGloba
             let mutex = engine_globals.event_loop_proxy;
             let window_id = engine_globals.surface.window().id();
             let x = mutex.lock().await;
-            let _ = x.send_event(UserEvent::WinitEvent(Event::WindowEvent{ window_id, event: WindowEvent::CloseRequested}));
+            let event = UserEvent::WinitEvent(Event::WindowEvent{ window_id, event: WindowEvent::CloseRequested});
+            x.send_event(event).unwrap();
         }, 
         false => {}
     };

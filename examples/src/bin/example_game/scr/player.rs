@@ -115,7 +115,8 @@ pub async fn frame<'r>(this: Arc<RwLock<Group>>, engine_globals: EngineGlobals) 
 
         let mutex = engine_globals.event_loop_proxy;
         let x = mutex.lock().await;
-        let _ = x.send_event(UserEvent::UserEvent(Arc::new(super::MyEvent::NewPew(pos, rot)) as Arc<dyn Any + Send + Sync>));
+        let event = Arc::new(super::MyEvent::NewPew(pos, rot)) as Arc<dyn Any + Send + Sync>;
+        x.send_event(UserEvent::UserEvent(event)).unwrap();
     }
  
     Swap::None
