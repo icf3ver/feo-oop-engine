@@ -23,6 +23,16 @@ This library allows for the creation of scripts that govern the behavior of game
 ### Why Scripts?
 The simple answer is I tried something and liked the way it turned out. OOP is not something that Rust is known for and neither is scripting, given these two facts and given my love for challenging myself I decided to try and implement both. I intend to release an ECS version of this project but I wanted to provide this as an option because personally, with my Java, C#, and Unity background, I feel it is a bit more intuitive, although granted slower.
 
+## Compatibility
+
+|  OS     | Compatible         |
+| :-----: | :----------------: |
+| Windows | :x:                |
+| Linux   | :heavy_check_mark: |
+| OSX     | :heavy_check_mark: |
+
+See issue [#1](/../../issues/1) for Windows
+
 ## Usage
 Using the engine is very straight forward.
 
