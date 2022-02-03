@@ -25,7 +25,11 @@ pub trait Parent: Named {
     
     // unsafe because scripts running on child access (->) child -> parent or children -> new object or nothing 
     // alternative use the swap feature
+    /// # Safety
+    /// Use `feo-oop-engine::scripting::swap::Swap` enum instead.
     unsafe fn replace_child(&mut self, old: Arc<RwLock<dyn GameObject>>, new: Arc<RwLock<dyn GameObject>>) -> Result<(), ()>; // ensure the child extends child and set its parent as well
+    /// # Safety
+    /// Use `feo-oop-engine::scripting::swap::Swap` enum instead.
     unsafe fn remove_child(&mut self, child: Arc<RwLock<dyn GameObject>>) -> Result<(), ()>;
 
     fn get_child_by_name(&self, name: &str) -> Result<Arc<RwLock<dyn GameObject>>, &str> {
@@ -45,6 +49,7 @@ pub trait Parent: Named {
 pub trait Child: Named {
     fn get_parent(&self) -> ParentWrapper; // await rmb
 
-    // unsafe because you do not want to set
+    /// # Safety
+    /// Use `feo-oop-engine::scripting::swap::Swap` enum instead.
     unsafe fn set_parent(&mut self, parent: ParentWrapper);
 }

@@ -69,6 +69,7 @@ impl TriangleMesh{
     }
 
     /// Create a triangle mesh from a section of an obj file.
+    #[allow(clippy::type_complexity)]
     pub fn from_obj_block<'a>(block: &[&str], mtls_hashmap: &mut HashMap<String, (Arc<Material>, Box<dyn GpuFuture>)>, vertex_data: (&Vec<Box<Vertex>>, &Vec<Box<TextureIndex>>, &Vec<Box<Normal>>), queue: Arc<Queue>) -> Result<Self, &'a str> {
         // Ordered mesh data
         let mut ordered_vertices = Vec::new();

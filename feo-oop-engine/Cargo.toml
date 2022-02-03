@@ -14,7 +14,7 @@ categories = [
     "game-engines", 
     "game-development", 
     "graphics", 
-    "mathematics", 
+    "mathematics", # see feo-math
     "rendering", 
     "rendering::engine", 
     "rendering::data-formats",
@@ -51,14 +51,14 @@ terminal_size = "0.1.16"
 colored = "2.0.0"
 
 # math dependencies
-feo-math = { git = "https://github.com/littleTitan/feo-math" }
+feo-math = { git = "https://github.com/littleTitan/feo-math", version = "0.1.0" }
 
 # macro dependencies
-global-macro-derive = { path = "./global-macro-derive"}
-child-macro-derive = { path = "./child-macro-derive"}
-parent-macro-derive = { path = "./parent-macro-derive"}
-scriptable-macro-derive = { path = "./scriptable-macro-derive"}
-gameobject-macro-derive = { path = "./gameobject-macro-derive"}
-drawable-macro-derive = { path = "./drawable-macro-derive"}
-named-macro-derive = { path = "./named-macro-derive"}
+global-macro-derive = { path = "./global-macro-derive", version = "0.1.0"}
+child-macro-derive = { path = "./child-macro-derive", version = "0.1.0"}
+parent-macro-derive = { path = "./parent-macro-derive", version = "0.1.0"}
+scriptable-macro-derive = { path = "./scriptable-macro-derive", version = "0.1.0"}
+gameobject-macro-derive = { path = "./gameobject-macro-derive", version = "0.1.0"}
+drawable-macro-derive = { path = "./drawable-macro-derive", version = "0.1.0"}
+named-macro-derive = { path = "./named-macro-derive", version = "0.1.0"}
 

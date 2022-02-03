@@ -52,7 +52,7 @@ let mut engine = FeoEngine::init(scene, Some(1)); /* Here I am using Some(1) to 
 ### Build Objects
 To build objects use the `::new()` constructor for the object you wish to build. You might want to build a light and a camera to be able to see the scene.
 ```rust
-// Obj's are one type of GameObject
+// Objs are one type of GameObject
 let obj = Obj::from_obj(
    Some("cube"), 
    "assets/standard-assets/models/shapes/cube.obj",

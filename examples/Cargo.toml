@@ -1,5 +1,6 @@
 [package]
 name = "examples"
+description = "Examples for feo-oop-engine"
 version = "0.0.3"
 authors = ["LittleTitan"]
 edition = "2018"

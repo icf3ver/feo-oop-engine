@@ -1,23 +1,26 @@
 //! GameObject material container
 //! 
 //! The only good mtl file documentation I found:
-//! http://paulbourke.net/dataformats/mtl/
-//!
-//!  0		Color on and Ambient off
-//!  1		Color on and Ambient on
-//!  2		Highlight on
-//!  3		Reflection on and Ray trace on
-//!  4		Transparency: Glass on
-//!  		Reflection: Ray trace on
-//!  5		Reflection: Fresnel on and Ray trace on
-//!  6		Transparency: Refraction on
-//!  		Reflection: Fresnel off and Ray trace on
-//!  7		Transparency: Refraction on
-//!  		Reflection: Fresnel on and Ray trace on
-//!  8		Reflection on and Ray trace off
-//!  9		Transparency: Glass on
-//!  		Reflection: Ray trace off
-//!  10		Casts shadows onto invisible surfaces
+//! <http://paulbourke.net/dataformats/mtl/>
+//! 
+//! 
+//! | illum | Interpretation                            |
+//! |-------|-------------------------------------------|
+//! | 0     | Color on and Ambient off                  |
+//! | 1     | Color on and Ambient on                   |
+//! | 2     | Highlight on                              |
+//! | 3     | Reflection on and Ray trace on            |
+//! | 4     | Transparency: Glass on                    |
+//! |       | Reflection: Ray trace on                  |
+//! | 5     | Reflection: Fresnel on and Ray trace on   |
+//! | 6     | Transparency: Refraction on               |
+//! |       | Reflection: Fresnel off and Ray trace on  |
+//! | 7     | Transparency: Refraction on               |
+//! |       | Reflection: Fresnel on and Ray trace on   |
+//! | 8     | Reflection on and Ray trace off           |
+//! | 9     | Transparency: Glass on                    |
+//! |       | Reflection: Ray trace off                 |
+//! | 10    | Casts shadows onto invisible surfaces     |
 
 use std::{sync::Arc, collections::HashMap, fs};
 use vulkano::{device::Queue, sync::{self, GpuFuture}};
@@ -131,7 +134,7 @@ impl Material {
 
     /// Parse an mtl file
     pub fn from_mtllib(path: &str, gfx_queue: Arc<Queue>) -> HashMap<String, (Arc<Self>, Box<dyn GpuFuture>)> {
-        let content = fs::read_to_string(path).expect(&format!("Something went wrong when trying to read {}.", path));
+        let content = fs::read_to_string(path).unwrap_or_else(|_| panic!("Something went wrong when trying to read {}.", path));
 
         let mut mtls = content.split("newmtl ");
         mtls.next();
@@ -146,7 +149,7 @@ impl Material {
     pub fn from_mtlblock(block: &str, path: &str, gfx_queue: Arc<Queue>) -> (String, (Arc<Material>, Box<dyn GpuFuture>)) {
         let mut lines = block.lines().filter(|s| !(*s).is_empty() && !s.starts_with('#') );
 
-        let name = lines.next().expect(format!("formatting error in {}", path).as_str()).split_whitespace().nth(1).unwrap().to_string();
+        let name = lines.next().unwrap_or_else(|| panic!("formatting error in {}", path)).split_whitespace().nth(1).unwrap().to_string();
         
         let mut ka: Option<RGB> = None;
         let mut kd: Option<RGB> = None;
@@ -175,19 +178,19 @@ impl Material {
         for line in lines {
             let mut line_parts = line.split_whitespace();
             match line_parts.next().unwrap() {
-                "Kd" => kd = Some(RGB::from_parts(line_parts).expect(format!("formatting error in {}", path).as_str())),
-                "Ka" => ka = Some(RGB::from_parts(line_parts).expect(format!("formatting error in {}", path).as_str())),
-                "Ks" => ks = Some(RGB::from_parts(line_parts).expect(format!("formatting error in {}", path).as_str())),
-                "Ke" => ke = Some(RGB::from_parts(line_parts).expect(format!("formatting error in {}", path).as_str())),
-                "Km" => km = Some(line_parts.next().expect(format!("formatting error in {}", path).as_str()).parse::<f32>().expect(format!("formatting error in {}", path).as_str())),
-                "Ns" => ns = Some(line_parts.next().expect(format!("formatting error in {}", path).as_str()).parse::<f32>().expect(format!("formatting error in {}", path).as_str())),
-                "Ni" => ni = Some(line_parts.next().expect(format!("formatting error in {}", path).as_str()).parse::<f32>().expect(format!("formatting error in {}", path).as_str())),
+                "Kd" => kd = Some(RGB::from_parts(line_parts).unwrap_or_else(|_| panic!("formatting error in {}", path))),
+                "Ka" => ka = Some(RGB::from_parts(line_parts).unwrap_or_else(|_| panic!("formatting error in {}", path))),
+                "Ks" => ks = Some(RGB::from_parts(line_parts).unwrap_or_else(|_| panic!("formatting error in {}", path))),
+                "Ke" => ke = Some(RGB::from_parts(line_parts).unwrap_or_else(|_| panic!("formatting error in {}", path))),
+                "Km" => km = Some(line_parts.next().unwrap_or_else(|| panic!("formatting error in {}", path)).parse::<f32>().unwrap_or_else(|_| panic!("formatting error in {}", path))),
+                "Ns" => ns = Some(line_parts.next().unwrap_or_else(|| panic!("formatting error in {}", path)).parse::<f32>().unwrap_or_else(|_| panic!("formatting error in {}", path))),
+                "Ni" => ni = Some(line_parts.next().unwrap_or_else(|| panic!("formatting error in {}", path)).parse::<f32>().unwrap_or_else(|_| panic!("formatting error in {}", path))),
                 "d" => d = match line_parts.clone().count() {
-                    1 => Some(line_parts.next().unwrap().parse::<f32>().expect(format!("formatting error in {}", path).as_str())), // halo length
+                    1 => Some(line_parts.next().unwrap().parse::<f32>().unwrap_or_else(|_| panic!("formatting error in {}", path))), // halo length
                     2 => {
                         line_parts.next().unwrap().to_string();
                         halo = true;
-                        Some(line_parts.next().unwrap().parse::<f32>().expect(format!("formatting error in {}", path).as_str()))
+                        Some(line_parts.next().unwrap().parse::<f32>().unwrap_or_else(|_| panic!("formatting error in {}", path)))
                     },
                     _ => panic!("formatting error in {}", path)
                 }, // rmb other transparency type
@@ -236,7 +239,7 @@ impl Material {
                 },
 
                 // required
-                "illum" => illum = Some(line_parts.next().expect(format!("formatting error in {}", path).as_str()).parse::<i8>().expect(format!("formatting error in {}", path).as_str()) as u8),
+                "illum" => illum = Some(line_parts.next().unwrap_or_else(|| panic!("formatting error in {}", path)).parse::<i8>().unwrap_or_else(|_| panic!("formatting error in {}", path)) as u8),
 
                 // unsupported
                 a => panic!("formatting error in {}. {} is not supported", path, a),
@@ -267,7 +270,7 @@ impl Material {
             halo,
         };
 
-        material.set_illumination_model(illum).expect(format!("formatting error in {}", path).as_str());
+        material.set_illumination_model(illum).unwrap_or_else(|_| panic!("formatting error in {}", path));
 
         (name, (Arc::new(material), future))
     }

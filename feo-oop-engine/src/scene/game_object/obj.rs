@@ -231,7 +231,7 @@ impl Obj {
         //   Read In String Data   //
         
         let content = fs::read_to_string(path)
-            .expect(&format!("Something went wrong when trying to read {}.", path));
+            .unwrap_or_else(|_| panic!("Something went wrong when trying to read {}.", path));
         let mut last_block = Box::new(Vec::new());
         let lines: Vec<(&str, Vec<&str>)> = content.lines().filter_map(|line| {
             if !line.is_empty() {
@@ -376,6 +376,7 @@ impl Obj {
             };
             
             let mut e = line.0.split_whitespace();
+            #[allow(clippy::or_fun_call)]
             let ty: &str = e.next().ok_or(format!("error on line {} of {}", line_n, path).as_str()).unwrap();
 
 

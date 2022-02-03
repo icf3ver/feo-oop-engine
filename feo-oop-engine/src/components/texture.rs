@@ -51,6 +51,7 @@ lazy_static!{
 
 /// A texture is an image that helps describe the surface of a model
 pub struct Texture {
+    #[allow(clippy::type_complexity)]
     pub img_view: Arc<ImageView<Arc<ImmutableImage<Format, PotentialDedicatedAllocation<StdMemoryPoolAlloc>>>>>,
     pub sampler: Arc<Sampler>,
 }
@@ -199,7 +200,7 @@ impl Texture {
                     let part = part.replace("\\", "/");
                     let texture_path = path.rsplitn(2, '/').nth(1).unwrap().to_owned() + "/" + part.as_str();
                     let (texture, tex_future) = {
-                        let mut file = File::open(&texture_path).expect(format!("The texture \"{}\" does not exist.", texture_path).as_str());
+                        let mut file = File::open(&texture_path).unwrap_or_else(|_| panic!("The texture \"{}\" does not exist.", texture_path));
                         let mut buffer = Vec::new();
                         file.read_to_end(&mut buffer).unwrap();
                         let cursor = Cursor::new(buffer);
@@ -336,8 +337,8 @@ impl Texture {
                 // base -> adds a base value to the texture values + increase - decrease/dim 
                 // gain -> increases range of texture values
                 "-mm" => mm = (
-                    params.next().unwrap().parse::<f32>().expect(format!("formatting error in {}", path).as_str()),
-                    params.next().unwrap().parse::<f32>().expect(format!("formatting error in {}", path).as_str())
+                    params.next().unwrap().parse::<f32>().unwrap_or_else(|_| panic!("formatting error in {}", path)),
+                    params.next().unwrap().parse::<f32>().unwrap_or_else(|_| panic!("formatting error in {}", path))
                 ),
                 
                 // horizontal
@@ -345,23 +346,23 @@ impl Texture {
                 // depth 
                 // for \/\/\/
                 "-o" => o = ( // offset position of texture map
-                    params.next().unwrap().parse::<f32>().expect(format!("formatting error in {}", path).as_str()),
-                    params.next().unwrap().parse::<f32>().expect(format!("formatting error in {}", path).as_str()), // TODO: optional
-                    params.next().unwrap().parse::<f32>().expect(format!("formatting error in {}", path).as_str()), // --
+                    params.next().unwrap().parse::<f32>().unwrap_or_else(|_| panic!("formatting error in {}", path)),
+                    params.next().unwrap().parse::<f32>().unwrap_or_else(|_| panic!("formatting error in {}", path)), // TODO: optional
+                    params.next().unwrap().parse::<f32>().unwrap_or_else(|_| panic!("formatting error in {}", path)), // --
                 ),
                 "-s" => s = ( // scales the texture pattern
-                    params.next().unwrap().parse::<f32>().expect(format!("formatting error in {}", path).as_str()),
-                    params.next().unwrap().parse::<f32>().expect(format!("formatting error in {}", path).as_str()), // --
-                    params.next().unwrap().parse::<f32>().expect(format!("formatting error in {}", path).as_str()), // --
+                    params.next().unwrap().parse::<f32>().unwrap_or_else(|_| panic!("formatting error in {}", path)),
+                    params.next().unwrap().parse::<f32>().unwrap_or_else(|_| panic!("formatting error in {}", path)), // --
+                    params.next().unwrap().parse::<f32>().unwrap_or_else(|_| panic!("formatting error in {}", path)), // --
                 ),
                 "-t" => t = ( // turbulence for textures -> no noticeable tiling
-                    params.next().unwrap().parse::<f32>().expect(format!("formatting error in {}", path).as_str()),
-                    params.next().unwrap().parse::<f32>().expect(format!("formatting error in {}", path).as_str()), // --
-                    params.next().unwrap().parse::<f32>().expect(format!("formatting error in {}", path).as_str()), // --
+                    params.next().unwrap().parse::<f32>().unwrap_or_else(|_| panic!("formatting error in {}", path)),
+                    params.next().unwrap().parse::<f32>().unwrap_or_else(|_| panic!("formatting error in {}", path)), // --
+                    params.next().unwrap().parse::<f32>().unwrap_or_else(|_| panic!("formatting error in {}", path)), // --
                 ),
 
                 // the resolution of the texture
-                "-texres" => texres = Some(params.next().unwrap().parse::<u32>().expect(format!("formatting error in {}", path).as_str())),
+                "-texres" => texres = Some(params.next().unwrap().parse::<u32>().unwrap_or_else(|_| panic!("formatting error in {}", path))),
 
                 _ => incomplete = format!("{} ", part),
             }

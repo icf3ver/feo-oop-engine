@@ -2,22 +2,22 @@
 //! 
 //! ## Compatibility
 //!
-//! |  OS     | Compatible         |
-//! | :-----: | :----------------: |
-//! | Windows | :x:                |
-//! | Linux   | :heavy_check_mark: |
-//! | OSX     | :heavy_check_mark: |
+//! |  OS     | Compatible |
+//! | :-----: | :--------: |
+//! | Windows | Issue id:1 |
+//! | Linux   | Yes        |
+//! | OSX     | Yes        |
 //!
 //! See issue [#1](/../../issues/1) for Windows
 //! ## Description
-//! > The FeO OOP engine is a library I created to help me learn about 3D engines. This 
+//! The FeO OOP engine is a library I created to help me learn about 3D engines. This 
 //! project is composed of two parts. [feo-math](https://github.com/littleTitan/feo-math), 
 //! the math boilerplate; and the feo-oop-engine. The engine is built on the 
 //! [vulkano](https://vulkano.rs) framework. This program is designed to facilitate 3D 
 //! application development. Please note however that this program has its own unique 
-//! [workflow](##workflow). Features of the engine include [scripts](###scripts), object 
-//! oriented programming (or OOP for short), textures, materials, lights, game objects, 
-//! and obj and mtl processing.
+//! workflow. Features of the engine include [scripts](###scripts), object oriented 
+//! programming (or OOP for short), textures, materials, lights, game objects, and obj
+//! and mtl processing.
 //! 
 //! ## Example
 //! 
@@ -25,20 +25,19 @@
 //! 
 //! First create a new scene.
 //! ```ignore
-//! let scene = Scene::new(None); // Worldspace is not yet a fully completed feature
+//! let scene = Scene::new(None);
 //! ```
 //! This is where all of your game-objects will directly or indirectly exist on. 
 //!
 //! ### Initialize the Engine With the Scene
 //! To create an engine use the `FeoEngine::init(scene, specify_hardware)`. This will create a feo_engine object.
 //! ```ignore
-//! let mut engine = FeoEngine::init(scene, Some(1)); /* Here I am using Some(1) to choose the first hardware that can support the engine. If you do not know what you want to use use None and you will be prompted with a list of the options. */
+//! let mut engine = FeoEngine::init(scene, Some(1));
 //! ```
 //!
 //! ### Build Objects
 //! To build objects use the `::new()` constructor for the object you wish to build. You might want to build a light and a camera to be able to see the scene.
 //! ```ignore
-//! // Obj's are one type of GameObject
 //! let obj = Obj::from_obj(
 //!    Some("cube"), 
 //!    "assets/standard-assets/models/shapes/cube.obj",
@@ -48,7 +47,7 @@
 //!    None,
 //!    true,
 //!    engine.globals.clone(),
-//!    None // The scripts go here
+//!    None
 //! );
 //! ```
 //!
