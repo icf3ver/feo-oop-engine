@@ -1,5 +1,14 @@
 //! Feo OOP Engine is an object oriented game engine.
 //! 
+//! ## Compatibility
+//!
+//! |  OS     | Compatible         |
+//! | :-----: | :----------------: |
+//! | Windows | :x:                |
+//! | Linux   | :heavy_check_mark: |
+//! | OSX     | :heavy_check_mark: |
+//!
+//! See issue [#1](/../../issues/1) for Windows
 //! ## Description
 //! > The FeO OOP engine is a library I created to help me learn about 3D engines. This 
 //! project is composed of two parts. [feo-math](https://github.com/littleTitan/feo-math), 
