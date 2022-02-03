@@ -5,6 +5,3 @@ members = [
     # "feo-math",
     "examples",
 ]
-
-[profile.release]
-debug = true
