@@ -24,20 +24,20 @@
 //! ### Building the Scene
 //! 
 //! First create a new scene.
-//! ```rust
+//! ```ignore
 //! let scene = Scene::new(None); // Worldspace is not yet a fully completed feature
 //! ```
 //! This is where all of your game-objects will directly or indirectly exist on. 
 //!
 //! ### Initialize the Engine With the Scene
 //! To create an engine use the `FeoEngine::init(scene, specify_hardware)`. This will create a feo_engine object.
-//! ```rust
+//! ```ignore
 //! let mut engine = FeoEngine::init(scene, Some(1)); /* Here I am using Some(1) to choose the first hardware that can support the engine. If you do not know what you want to use use None and you will be prompted with a list of the options. */
 //! ```
 //!
 //! ### Build Objects
 //! To build objects use the `::new()` constructor for the object you wish to build. You might want to build a light and a camera to be able to see the scene.
-//! ```rust
+//! ```ignore
 //! // Obj's are one type of GameObject
 //! let obj = Obj::from_obj(
 //!    Some("cube"), 
@@ -54,13 +54,13 @@
 //!
 //! ### Pass Objects to Scene
 //! Use the `add_child()` function to add the object you created to the scene within the engine.
-//! ```rust
+//! ```ignore
 //! engine.scene.write().unwrap().add_child(obj.unwrap());
 //! ```
 //!
 //! ### Running the Engine
 //! When all the game_objects have been created you can use the run() function of feo_engine to start the engine.
-//! ```rust
+//! ```ignore
 //! engine.run()
 //! ```
 #[macro_use] extern crate lazy_static;
