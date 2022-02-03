@@ -1,3 +1,7 @@
+//! Managing the async script.
+//! 
+//! TODO
+//! 
 use {
     super::{
         swap::Swap,
@@ -53,7 +57,7 @@ pub struct Executor {
 
 #[derive(Clone)]
 pub struct Spawner {
-    pub engine_globals: EngineGlobals, // distributed to all frame's
+    pub engine_globals: EngineGlobals, // distributed to all frames
     pub task_sender: SyncSender<Arc<Task>>,
 }
 

@@ -1,3 +1,7 @@
+//! Systems for defining relationships between objects. IE Parent/Child
+//! 
+//! TODO
+//! 
 use {
     crate::{
         scene::{

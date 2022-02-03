@@ -1,3 +1,7 @@
+//! class based identification systems
+//! 
+//! TODO
+//! 
 use std::{collections::HashMap, sync::{Arc, RwLock}};
 
 use crate::scene::game_object::GameObject;

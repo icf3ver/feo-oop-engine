@@ -1,3 +1,7 @@
+//! Terminal/cmd/powershell UI
+//! 
+//! All constructs for the terminal.
+//! 
 mod progress_bar;
 mod prompt_physical_device;
 

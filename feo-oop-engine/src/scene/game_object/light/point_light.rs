@@ -1,3 +1,7 @@
+//! A light that shines from a point
+//! 
+//! TODO
+//! 
 use {
     crate::{ 
         registration::{

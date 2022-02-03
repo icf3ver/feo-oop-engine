@@ -1,3 +1,7 @@
+//! Camera GameObjects that can light up a scene
+//! 
+//! TODO
+//! 
 pub mod directional_light;
 pub mod ambient_light;
 pub mod point_light;

@@ -1,3 +1,7 @@
+//! Constructs that let you interface with the engine to safely create and use global variables.
+//! 
+//! TODO
+//! 
 use std::fmt::Debug;
 
 use vulkano::device::Queue;

@@ -1,3 +1,7 @@
+//! A construct within which a world can exist.
+//! 
+//! TODO
+//! 
 pub mod game_object;
 
 use std::any::Any;

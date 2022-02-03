@@ -1,6 +1,7 @@
-//! Mesh
-//! Note: has a material
-
+//! Mesh that has a material
+//! 
+//! TODO
+//! 
 use vulkano::sync;
 
 use {

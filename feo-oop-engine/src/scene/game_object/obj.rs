@@ -1,3 +1,7 @@
+//! A GameObject that can be built from an obj file.
+//! 
+//! TODO: explain OOP here
+//! 
 use {
     super::{
         GameObject,

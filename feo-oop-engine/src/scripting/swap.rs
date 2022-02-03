@@ -1,3 +1,7 @@
+//! Constructs that let you interface with the engine to safely swap and delete GameObjects.
+//! 
+//! TODO
+//! 
 use {
     crate::{
         scene::game_object::GameObject, 

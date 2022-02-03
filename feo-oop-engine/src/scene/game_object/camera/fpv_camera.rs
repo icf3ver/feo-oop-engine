@@ -1,3 +1,7 @@
+//! First Person View Camera GameObject that can capture a scene
+//! 
+//! TODO
+//! 
 use {
     super::{
         Camera,

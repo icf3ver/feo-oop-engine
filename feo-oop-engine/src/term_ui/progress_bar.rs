@@ -1,3 +1,7 @@
+//! Constructs used for progress bar
+//! 
+//! TODO
+//! 
 use std::{io::{Stdout, Write}};
 use colored::*;
 

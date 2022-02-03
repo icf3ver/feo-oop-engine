@@ -1,3 +1,7 @@
+//! An empty object that can contain other GameObjects
+//! 
+//! TODO
+//! 
 use {
     super::{
         GameObject,

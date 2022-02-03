@@ -1,3 +1,7 @@
+//! Identification systems
+//! 
+//! TODO
+//! 
 use std::sync::{Arc, Mutex};
 
 #[derive(Debug, PartialEq, Eq, Hash)]

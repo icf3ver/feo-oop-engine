@@ -1,3 +1,7 @@
+//! A light that lights up everything
+//! 
+//! TODO
+//! 
 use {
     crate::{
         registration::{

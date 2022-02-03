@@ -1,3 +1,7 @@
+//! Engine events and user defined events container.
+//! 
+//! TODO
+//! 
 use std::sync::{Arc, RwLock};
 use crate::scene::game_object::GameObject;
 use winit::event::Event;

@@ -1,3 +1,7 @@
+//! Constructs used for prompting for a physical device.
+//! 
+//! TODO
+//! 
 use std::sync::Arc;
 
 use vulkano::instance::{

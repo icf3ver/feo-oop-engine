@@ -1,3 +1,7 @@
+//! Engine/Game objects that can exist within a scene.
+//! 
+//! TODO: explain OOP here
+//! 
 use core::fmt;
 
 pub mod light;

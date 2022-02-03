@@ -1,5 +1,7 @@
-//! Components used by game objects
-
+//! Components used by game objects.
+//! 
+//! TODO
+//! 
 pub mod texture;
 pub mod material;
 pub mod triangle_mesh;

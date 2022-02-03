@@ -1,3 +1,7 @@
+//! Camera GameObjects that can capture a scene
+//! 
+//! TODO
+//! 
 use std::fmt;
 
 pub mod fpv_camera;

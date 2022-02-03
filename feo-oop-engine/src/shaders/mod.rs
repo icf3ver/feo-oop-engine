@@ -1,3 +1,8 @@
+//! GLSL Shaders
+//! 
+//! TODO
+//! 
+
 /// vertex shader that parses a model
 pub(crate) mod vs_draw {
     vulkano_shaders::shader! {
