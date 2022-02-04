@@ -6,7 +6,7 @@
 [![Docs](https://docs.rs/feo-oop-engine/badge.svg)](https://docs.rs/feo-oop-engine)
 [![Build Status](https://github.com/littleTitan/feo-oop-engine/workflows/Rust/badge.svg)](https://github.com/littleTitan/feo-oop-engine/actions?query=workflow%3ARust)
 
-see also: [feo-oop-engine-proc-macros](https://github.com/littleTitan/feo-oop-engine/feo-oop-engine-proc-macros), [feo-math](https://github.com/littleTitan/feo-math)
+see also: [feo-oop-engine-proc-macros](https://github.com/littleTitan/feo-oop-engine/tree/main/feo-oop-engine-proc-macros), [feo-math](https://github.com/littleTitan/feo-math)
 
 ## Description
 

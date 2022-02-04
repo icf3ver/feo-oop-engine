@@ -1,12 +1,12 @@
 [package]
 name = "feo-oop-engine-proc-macros"
 authors = ["LittleTitan"]
-version = "0.0.3"
+version = "0.0.4"
 edition = "2018"
 
 description = "The proc macros for feo-oop-engine."
 documentation = "https://docs.rs/feo-oop-engine-proc-macros"
-repository = "https://github.com/littleTitan/feo-oop-engine/feo-oop-engine-proc-macros"
+repository = "https://github.com/littleTitan/feo-oop-engine/tree/main/feo-oop-engine-proc-macros"
 readme = "./README.md"
 
 keywords = ["feo", "oop", "engine", "proc", "macros"]

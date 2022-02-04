@@ -1,6 +1,6 @@
 <img align="left" alt="" src="../assets/standard-assets/textures/feo-oop-engine-logo.png" height="155" />
 
-# [FeO OOP Engine <b>Proc Macros</b>](https://github.com/littleTitan/feo-oop-engine/feo-oop-engine-proc-macros)
+# [FeO OOP Engine <b>Proc Macros</b>](https://github.com/littleTitan/feo-oop-engine/tree/main/feo-oop-engine-proc-macros)
 
 [![Crates.io](https://img.shields.io/crates/v/feo-oop-engine-proc-macros.svg)](https://crates.io/crates/feo-oop-engine-proc-macros)
 [![Docs](https://docs.rs/feo-oop-engine/badge.svg)](https://docs.rs/feo-oop-engine-proc-macros)
