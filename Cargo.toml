@@ -1,6 +1,7 @@
 [workspace]
 members = [
     "feo-oop-engine",
+    "feo-oop-engine-proc-macros",
     # "feo-ecs-engine",
     # "feo-math",
     "examples",

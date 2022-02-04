@@ -1,17 +1,7 @@
 use proc_macro::TokenStream;
 use quote::quote;
 
-/// default visible = true by default
-///
-
-#[proc_macro_derive(Parent)]
-pub fn parent_macro_derive(input: TokenStream) -> TokenStream {
-    let ast = syn::parse(input).unwrap();
-
-    impl_parent_macro(&ast)
-}
-
-fn impl_parent_macro(ast: &syn::DeriveInput) -> TokenStream {
+pub(crate) fn impl_parent_macro(ast: &syn::DeriveInput) -> TokenStream {
     let name = &ast.ident;
     let gen = quote! {
         impl Parent for #name {

@@ -6,7 +6,7 @@ use scr::TargetGlobal;
 mod scr;
 
 #[macro_use] extern crate macro_rules_attribute;
-#[macro_use] extern crate global_macro_derive;
+#[macro_use] extern crate feo_oop_engine_proc_macros;
 #[macro_use] extern crate feo_oop_engine;
 
 use {

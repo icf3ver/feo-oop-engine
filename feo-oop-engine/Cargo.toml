@@ -9,20 +9,18 @@ documentation = "https://docs.rs/feo-oop-engine"
 repository = "https://github.com/littleTitan/feo-oop-engine"
 readme = "../README.md"
 
-keywords = ["gamedev", "graphics", "engine", "game", "oop"]
+keywords = ["feo", "oop", "game", "engine", "graphics"]
 categories = [
+    # "accessibility",
     "game-engines", 
-    "game-development", 
+    # "game-development", 
     "graphics", 
-    "mathematics", # see feo-math
-    "rendering", 
-    "rendering::engine", 
-    "rendering::data-formats",
-    "rendering::graphics-api",
+    # "mathematics", # see feo-math
+    "rendering",
     "asynchronous", 
-    "command-line-interface",
-    "filesystem",
-    "parsing"
+    # "command-line-interface",
+    # "parsing",
+    "data-structures"
 ]
 
 license = "MIT"
@@ -51,14 +49,7 @@ terminal_size = "0.1.16"
 colored = "2.0.0"
 
 # math dependencies
-feo-math = { git = "https://github.com/littleTitan/feo-math", version = "0.1.0" }
+feo-math = "0.1.0"
 
 # macro dependencies
-global-macro-derive = { path = "./global-macro-derive", version = "0.1.0"}
-child-macro-derive = { path = "./child-macro-derive", version = "0.1.0"}
-parent-macro-derive = { path = "./parent-macro-derive", version = "0.1.0"}
-scriptable-macro-derive = { path = "./scriptable-macro-derive", version = "0.1.0"}
-gameobject-macro-derive = { path = "./gameobject-macro-derive", version = "0.1.0"}
-drawable-macro-derive = { path = "./drawable-macro-derive", version = "0.1.0"}
-named-macro-derive = { path = "./named-macro-derive", version = "0.1.0"}
-
+feo-oop-engine-proc-macros = { path="../feo-oop-engine-proc-macros", features = ["full"] }

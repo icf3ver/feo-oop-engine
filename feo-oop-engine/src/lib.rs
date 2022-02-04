@@ -64,13 +64,14 @@
 //! ```
 #[macro_use] extern crate lazy_static;
 
-#[macro_use] extern crate global_macro_derive;
-#[macro_use] extern crate named_macro_derive;
-#[macro_use] extern crate parent_macro_derive;
-#[macro_use] extern crate child_macro_derive;
-#[macro_use] extern crate drawable_macro_derive;
-#[macro_use] extern crate scriptable_macro_derive;
-#[macro_use] extern crate gameobject_macro_derive;
+#[macro_use] extern crate feo_oop_engine_proc_macros;
+// #[macro_use] extern crate global_macro_derive;
+// #[macro_use] extern crate named_macro_derive;
+// #[macro_use] extern crate parent_macro_derive;
+// #[macro_use] extern crate child_macro_derive;
+// #[macro_use] extern crate drawable_macro_derive;
+// #[macro_use] extern crate scriptable_macro_derive;
+// #[macro_use] extern crate gameobject_macro_derive;
 
 pub mod scene;
 pub mod components;

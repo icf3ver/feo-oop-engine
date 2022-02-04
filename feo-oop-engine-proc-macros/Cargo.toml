@@ -1,0 +1,43 @@
+[package]
+name = "feo-oop-engine-proc-macros"
+authors = ["LittleTitan"]
+version = "0.0.3"
+edition = "2018"
+
+description = "The proc macros for feo-oop-engine."
+documentation = "https://docs.rs/feo-oop-engine-proc-macros"
+repository = "https://github.com/littleTitan/feo-oop-engine/feo-oop-engine-proc-macros"
+readme = "./README.md"
+
+keywords = ["feo", "oop", "engine", "proc", "macros"]
+categories = [
+    "game-engines", 
+    "accessibility",
+    "filesystem",
+    "data-structures",
+    "asynchronous", 
+]
+
+license = "MIT"
+
+[lib]
+proc-macro = true
+
+[dependencies]
+syn = "1.0"
+quote = "1.0"
+proc-macro2 = "1.0.24"
+
+[features]
+default = ["global"]
+child = []
+drawable = []
+gameobject = []
+global = []
+named = []
+parent = []
+scriptable = []
+full = ["child", "drawable", "gameobject", "global", "named", "parent", "scriptable"]
+
+[package.metadata.docs.rs]
+all-features = true

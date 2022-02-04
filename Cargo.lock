@@ -103,14 +103,6 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "baf1de4339761588bc0619e3cbc0120ee582ebb74b53b4efbf79117bd2da40fd"
 
 [[package]]
-name = "child-macro-derive"
-version = "0.0.0"
-dependencies = [
- "quote",
- "syn",
-]
-
-[[package]]
 name = "cmake"
 version = "0.1.45"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -414,14 +406,6 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "9ea835d29036a4087793836fa931b08837ad5e957da9e23886b29586fb9b6650"
 
 [[package]]
-name = "drawable-macro-derive"
-version = "0.0.0"
-dependencies = [
- "quote",
- "syn",
-]
-
-[[package]]
 name = "either"
 version = "1.6.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -433,7 +417,7 @@ version = "0.0.3"
 dependencies = [
  "feo-math",
  "feo-oop-engine",
- "global-macro-derive",
+ "feo-oop-engine-proc-macros",
  "macro_rules_attribute",
  "rand",
  "winit",
@@ -442,31 +426,35 @@ dependencies = [
 [[package]]
 name = "feo-math"
 version = "0.1.0"
-source = "git+https://github.com/littleTitan/feo-math#d04c92fe8725c9f0c725be49c00c73a07d3047bc"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "4667678da6370e8ee5aac10c35c05ec4390391bfcd5f2e2adf942271ef9dc5ec"
 
 [[package]]
 name = "feo-oop-engine"
 version = "0.0.3"
 dependencies = [
- "child-macro-derive",
  "colored",
- "drawable-macro-derive",
  "feo-math",
+ "feo-oop-engine-proc-macros",
  "futures",
- "gameobject-macro-derive",
- "global-macro-derive",
  "image",
  "lazy_static",
- "named-macro-derive",
- "parent-macro-derive",
  "png",
  "rayon",
- "scriptable-macro-derive",
  "terminal_size",
  "vulkano",
  "vulkano-shaders",
  "vulkano-win",
  "winit",
+]
+
+[[package]]
+name = "feo-oop-engine-proc-macros"
+version = "0.0.3"
+dependencies = [
+ "proc-macro2",
+ "quote",
+ "syn",
 ]
 
 [[package]]
@@ -601,15 +589,6 @@ dependencies = [
 ]
 
 [[package]]
-name = "gameobject-macro-derive"
-version = "0.0.0"
-dependencies = [
- "proc-macro2",
- "quote",
- "syn",
-]
-
-[[package]]
 name = "getrandom"
 version = "0.2.3"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -628,14 +607,6 @@ checksum = "5a668f699973d0f573d15749b7002a9ac9e1f9c6b220e7b165601334c173d8de"
 dependencies = [
  "color_quant",
  "weezl",
-]
-
-[[package]]
-name = "global-macro-derive"
-version = "0.0.0"
-dependencies = [
- "quote",
- "syn",
 ]
 
 [[package]]
@@ -909,14 +880,6 @@ dependencies = [
 ]
 
 [[package]]
-name = "named-macro-derive"
-version = "0.0.0"
-dependencies = [
- "quote",
- "syn",
-]
-
-[[package]]
 name = "ndk"
 version = "0.2.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -1114,14 +1077,6 @@ dependencies = [
 ]
 
 [[package]]
-name = "parent-macro-derive"
-version = "0.0.0"
-dependencies = [
- "quote",
- "syn",
-]
-
-[[package]]
 name = "parking_lot"
 version = "0.11.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -1211,18 +1166,18 @@ checksum = "bc881b2c22681370c6a780e47af9840ef841837bc98118431d4e1868bd0c1086"
 
 [[package]]
 name = "proc-macro2"
-version = "1.0.27"
+version = "1.0.36"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "f0d8caf72986c1a598726adc988bb5984792ef84f5ee5aa50209145ee8077038"
+checksum = "c7342d5883fbccae1cc37a2353b09c87c9b0f3afd73f5fb9bba687a1f733b029"
 dependencies = [
  "unicode-xid",
 ]
 
 [[package]]
 name = "quote"
-version = "1.0.9"
+version = "1.0.15"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "c3d0b9745dc2debf507c8422de05d7226cc1f0644216dfdfead988f9b1ab32a7"
+checksum = "864d3e96a899863136fc6e99f3d7cae289dafe43bf2c5ac19b70df7210c0a145"
 dependencies = [
  "proc-macro2",
 ]
@@ -1348,14 +1303,6 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "d29ab0c6d3fc0ee92fe66e2d99f700eab17a8d57d1c1d3b748380fb20baa78cd"
 
 [[package]]
-name = "scriptable-macro-derive"
-version = "0.0.0"
-dependencies = [
- "quote",
- "syn",
-]
-
-[[package]]
 name = "serde"
 version = "1.0.126"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -1430,9 +1377,9 @@ checksum = "6446ced80d6c486436db5c078dde11a9f73d42b57fb273121e160b84f63d894c"
 
 [[package]]
 name = "syn"
-version = "1.0.73"
+version = "1.0.86"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "f71489ff30030d2ae598524f61326b902466f72a0fb1a8564c001cc63425bcc7"
+checksum = "8a65b3f4ffa0092e9887669db0eae07941f023991ab58ea44da8fe8e2d511c6b"
 dependencies = [
  "proc-macro2",
  "quote",

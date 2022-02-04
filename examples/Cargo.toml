@@ -19,10 +19,10 @@ rand = "0.8.3"
 
 # feo engine dependencies
 feo-oop-engine = { path = "../feo-oop-engine" }
-global-macro-derive = { path = "../feo-oop-engine/global-macro-derive" }
+feo-oop-engine-proc-macros = { path="../feo-oop-engine-proc-macros" }
 
 # feo math dependency
-feo-math = { git = "https://github.com/littleTitan/feo-math" }
+feo-math = "0.1.0"
 
 # macro dependencies
 macro_rules_attribute = "0.0.2"

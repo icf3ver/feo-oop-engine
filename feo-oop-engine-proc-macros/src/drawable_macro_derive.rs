@@ -2,13 +2,6 @@ use proc_macro::TokenStream;
 use quote::{quote, __private::Span};
 use syn::{self, AngleBracketedGenericArguments, Data, DataStruct, Fields, FieldsNamed, GenericArgument, Ident, PathArguments, Type};
 
-#[proc_macro_derive(Drawable, attributes(light))]
-pub fn drawable_macro_derive(input: TokenStream) -> TokenStream {
-    let ast = syn::parse(input).unwrap();
-
-    impl_drawable_macro(&ast)
-}
-
 #[derive(Clone)]
 enum Mesh{
     Vec(Ident),
@@ -19,7 +12,7 @@ enum Mesh{
     None,
 }
 
-fn impl_drawable_macro(ast: &syn::DeriveInput) -> TokenStream {
+pub(crate) fn impl_drawable_macro(ast: &syn::DeriveInput) -> TokenStream {
     let name = &ast.ident;
     let data = &ast.data;
     let attributes = &ast.attrs;
