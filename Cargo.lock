@@ -417,7 +417,7 @@ version = "0.0.3"
 dependencies = [
  "feo-math",
  "feo-oop-engine",
- "feo-oop-engine-proc-macros",
+ "feo-oop-engine-proc-macros 0.0.4",
  "macro_rules_attribute",
  "rand",
  "winit",
@@ -431,11 +431,11 @@ checksum = "4667678da6370e8ee5aac10c35c05ec4390391bfcd5f2e2adf942271ef9dc5ec"
 
 [[package]]
 name = "feo-oop-engine"
-version = "0.0.3"
+version = "0.0.4"
 dependencies = [
  "colored",
  "feo-math",
- "feo-oop-engine-proc-macros",
+ "feo-oop-engine-proc-macros 0.0.4 (registry+https://github.com/rust-lang/crates.io-index)",
  "futures",
  "image",
  "lazy_static",
@@ -450,7 +450,18 @@ dependencies = [
 
 [[package]]
 name = "feo-oop-engine-proc-macros"
-version = "0.0.3"
+version = "0.0.4"
+dependencies = [
+ "proc-macro2",
+ "quote",
+ "syn",
+]
+
+[[package]]
+name = "feo-oop-engine-proc-macros"
+version = "0.0.4"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "0eeeb1960e8ba853e4a1e0718677e0f4491e0fb4857ca5e644709b695ec03ef7"
 dependencies = [
  "proc-macro2",
  "quote",
