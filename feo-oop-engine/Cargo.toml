@@ -34,8 +34,7 @@ winit = "0.24.0"
 vulkano-win = "0.22.0"
 
 # image io
-png = "0.16.8"
-image = "0.23.14"
+image = { version = "0.24.0", features = ["png", "bmp", "jpeg"] }
 
 # async and multi threading dependencies
 rayon = "1.5.0"

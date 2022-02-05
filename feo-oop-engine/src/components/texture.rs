@@ -40,9 +40,9 @@ use {
     },
     image::{
         ImageDecoder, 
-        bmp::BmpDecoder, 
-        jpeg::JpegDecoder, 
-        png::PngDecoder
+        codecs::bmp::BmpDecoder, 
+        codecs::jpeg::JpegDecoder, 
+        codecs::png::PngDecoder
     },
 };
 lazy_static!{
@@ -71,19 +71,22 @@ impl Texture {
         
         let png_bytes = include_bytes!("default_texture.png").to_vec();
         let cursor = Cursor::new(png_bytes);
-        let decoder = png::Decoder::new(cursor);
+        let decoder = PngDecoder::new(cursor).unwrap();
+
+        let (width, height) = decoder.dimensions();
         
-        let (info, mut reader) = decoder.read_info().unwrap();
+        let mut reader = decoder.into_reader().unwrap();
+
         let dimensions = ImageDimensions::Dim2d {
-            width: info.width,
-            height: info.height,
+            width,
+            height,
             array_layers: 1,
         };
 
         let mut image_data = Vec::new();
-        image_data.resize((info.width * info.height * 4) as usize, 0);
+        image_data.resize((width * height * 4) as usize, 0);
         
-        reader.next_frame(&mut image_data).unwrap();
+        reader.read_exact(&mut image_data).unwrap();
         
         let (image, future) = match ImmutableImage::from_iter(
                     image_data.iter().cloned(),
