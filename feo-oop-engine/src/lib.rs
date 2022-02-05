@@ -24,20 +24,27 @@
 //! ### Building the Scene
 //! 
 //! First create a new scene.
-//! ```ignore
+//! ```no_run
+//! use feo_oop_engine::scene::Scene;
+//! 
 //! let scene = Scene::new(None);
 //! ```
 //! This is where all of your game-objects will directly or indirectly exist on. 
 //!
 //! ### Initialize the Engine With the Scene
 //! To create an engine use the `FeoEngine::init(scene, specify_hardware)`. This will create a feo_engine object.
-//! ```ignore
+//! ```no_run
+//! use feo_oop_engine::FeoEngine;
+//! # let scene = feo_oop_engine::scene::Scene::new(None);
 //! let mut engine = FeoEngine::init(scene, Some(1));
 //! ```
 //!
 //! ### Build Objects
 //! To build objects use the `::new()` constructor for the object you wish to build. You might want to build a light and a camera to be able to see the scene.
-//! ```ignore
+//! ```no_run
+//! use feo_oop_engine::scene::game_object::obj::Obj;
+//! # let scene = feo_oop_engine::scene::Scene::new(None);
+//! # let mut engine = feo_oop_engine::FeoEngine::init(scene, Some(1));
 //! let obj = Obj::from_obj(
 //!    Some("cube"), 
 //!    "assets/standard-assets/models/shapes/cube.obj",
@@ -53,7 +60,13 @@
 //!
 //! ### Pass Objects to Scene
 //! Use the `add_child()` function to add the object you created to the scene within the engine.
-//! ```ignore
+//! ```no_run
+//! use feo_oop_engine::registration::relation::Parent;
+//! # let scene = feo_oop_engine::scene::Scene::new(None);
+//! # let mut engine = feo_oop_engine::FeoEngine::init(scene, Some(1));
+//! # let obj = feo_oop_engine::scene::game_object::obj::Obj::from_obj( Some("cube"), 
+//! #    "assets/standard-assets/models/shapes/cube.obj", None, None, None, None,
+//! #    true, engine.globals.clone(), None );
 //! engine.scene.write().unwrap().add_child(obj.unwrap());
 //! ```
 //!
@@ -65,13 +78,6 @@
 #[macro_use] extern crate lazy_static;
 
 #[macro_use] extern crate feo_oop_engine_proc_macros;
-// #[macro_use] extern crate global_macro_derive;
-// #[macro_use] extern crate named_macro_derive;
-// #[macro_use] extern crate parent_macro_derive;
-// #[macro_use] extern crate child_macro_derive;
-// #[macro_use] extern crate drawable_macro_derive;
-// #[macro_use] extern crate scriptable_macro_derive;
-// #[macro_use] extern crate gameobject_macro_derive;
 
 pub mod scene;
 pub mod components;
