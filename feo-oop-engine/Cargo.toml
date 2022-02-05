@@ -2,7 +2,7 @@
 name = "feo-oop-engine"
 version = "0.0.4"
 authors = ["LittleTitan"]
-edition = "2018"
+edition = "2021"
 
 description = "An Object Oriented game engine for rust."
 documentation = "https://docs.rs/feo-oop-engine"

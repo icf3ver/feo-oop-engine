@@ -32,13 +32,16 @@ use super::texture::Texture;
 /// distortion of surface of a model.
 #[derive(Debug, Clone)]
 pub struct Material{
+    #[allow(dead_code)]
     name: String,
     illum: u8, // illumination model  
     
     kd: Option<RGB>, // diffuse color not rly an option
     ka: Option<RGB>, // ambient color
-    ks: Option<RGB>, // specular color // TODO
+    ks: Option<RGB>, // specular color
+    #[allow(dead_code)]
     ke: Option<RGB>, // emissive color // TODO Unimplemented
+    #[allow(dead_code)]
     km: Option<f32>, // Bump strength // TODO
     ns: Option<f32>, // focus of specular highlights 0..1000
     ni: Option<f32>, // optical density / index of refraction 0..1000
@@ -47,13 +50,18 @@ pub struct Material{
     map_kd: Option<Arc<Texture>>,
     map_ka: Option<Arc<Texture>>,
     map_ks: Option<Arc<Texture>>,
+    #[allow(dead_code)] // TODO
     map_ke: Option<Arc<Texture>>,
+    #[allow(dead_code)] // TODO
     map_km: Option<Arc<Texture>>,
     map_ns: Option<Arc<Texture>>,
     // map_ni not sure if this would make sense
+    #[allow(dead_code)] // TODO
     map_d: Option<Arc<Texture>>,
+    #[allow(dead_code)] // TODO
     map_refl: Option<Arc<Texture>>,
     
+    #[allow(dead_code)] // TODO
     halo: bool,
 }
 

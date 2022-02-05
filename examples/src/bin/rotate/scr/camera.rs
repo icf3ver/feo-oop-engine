@@ -28,9 +28,13 @@ use {
 
 #[derive(Clone, Copy, Debug, Global)] // Global is derivable
 pub struct CameraGlobals{
+    #[allow(dead_code)]
     time: Instant,
+    #[allow(dead_code)]
     distance_from_center: f32,
+    #[allow(dead_code)]
     speed: f32,
+    #[allow(dead_code)]
     rotation_axis: Vector3<f32>
     // ...
 }

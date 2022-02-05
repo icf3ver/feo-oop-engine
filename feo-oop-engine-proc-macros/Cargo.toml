@@ -2,7 +2,7 @@
 name = "feo-oop-engine-proc-macros"
 authors = ["LittleTitan"]
 version = "0.0.4"
-edition = "2018"
+edition = "2021"
 
 description = "The proc macros for feo-oop-engine."
 documentation = "https://docs.rs/feo-oop-engine-proc-macros"

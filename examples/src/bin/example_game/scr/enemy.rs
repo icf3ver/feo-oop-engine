@@ -27,6 +27,7 @@ use {
 #[derive(Debug, Clone, Global)] // Global is derivable
 pub struct EnemyGlobals{
     target: Arc<RwLock<Group>>,
+    #[allow(dead_code)]
     start: Instant,
     time: Instant,
     poof: bool,
