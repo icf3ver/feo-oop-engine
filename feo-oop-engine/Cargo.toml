@@ -7,7 +7,7 @@ edition = "2021"
 description = "An Object Oriented game engine for rust."
 documentation = "https://docs.rs/feo-oop-engine"
 repository = "https://github.com/littleTitan/feo-oop-engine"
-readme = "../README.md"
+readme = "./README.md"
 
 keywords = ["feo", "oop", "game", "engine", "graphics"]
 categories = [

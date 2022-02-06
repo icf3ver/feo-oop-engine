@@ -5,6 +5,8 @@ version = "0.0.3"
 authors = ["LittleTitan"]
 edition = "2021"
 
+readme = "./README.md"
+
 license = "MIT"
 
 publish = false

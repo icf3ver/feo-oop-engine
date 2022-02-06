@@ -69,7 +69,7 @@ impl Texture {
             return texture.clone();
         }
         
-        let png_bytes = include_bytes!("default_texture.png").to_vec();
+        let png_bytes = include_bytes!("./default_texture.png").to_vec();
         let cursor = Cursor::new(png_bytes);
         let decoder = PngDecoder::new(cursor).unwrap();
 

@@ -1,4 +1,4 @@
-<img align="left" alt="" src="../assets/standard-assets/textures/feo-oop-engine-logo.png" height="155" />
+<img align="left" alt="" src="https://raw.githubusercontent.com/littleTitan/feo-oop-engine/main/assets/logo/feo-oop-engine-logo.png" height="155" />
 
 # [FeO OOP Engine <b>Proc Macros</b>](https://github.com/littleTitan/feo-oop-engine/tree/main/feo-oop-engine-proc-macros)
 
@@ -25,4 +25,4 @@ struct Globals {
 ```
 
 # License 
-[MIT](../LICENSE.md)
+[MIT](./LICENSE.md)
