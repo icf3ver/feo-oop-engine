@@ -25,11 +25,11 @@ The simple answer is I tried something and liked the way it turned out. OOP is n
 
 ## Compatibility
 
-|  OS     | Compatible         |
-| :-----: | :----------------: |
-| Windows | :x:                |
-| Linux   | :heavy_check_mark: |
-| OSX     | :heavy_check_mark: |
+|  OS     | Compatible |
+| :-----: | :--------: |
+| Windows | No         |
+| Linux   | Yes        |
+| OSX     | Yes        |
 
 See issue [#1](/../../issues/1) for Windows
 
