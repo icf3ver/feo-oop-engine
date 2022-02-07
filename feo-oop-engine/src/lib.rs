@@ -176,11 +176,17 @@ pub struct FeoEngine {
 }
 
 impl FeoEngine {
-    /// Initialize a FeoEngine
-    /// if you do nat know the device number of your preferred device
-    /// input none and you will be prompted to select one. Note the number
-    /// associated with this device and pass it in as a parameter on the next
-    /// run through
+    /// Initialize a FeoEngine.
+    /// 
+    /// # Arguments
+    /// * `scene` - The scene in which GameObjects exist.
+    /// * `index` - The optional device id. The default (None) displays available devices and prompts for the selection of one. 
+    /// # Examples
+    /// ```no_run
+    /// # use feo_oop_engine::FeoEngine;
+    /// # let scene = feo_oop_engine::scene::Scene::new(None);
+    /// FeoEngine::init(scene, Some(1)); // Uses the device with id of 1
+    /// ```
     pub fn init(scene: Arc<RwLock<Scene>>, index: Option<usize>) -> FeoEngine {
         // Vulkano Instance
         let instance = Instance::new(None, &vulkano_win::required_extensions(), None).unwrap();
@@ -248,6 +254,7 @@ impl FeoEngine {
         }
     }
 
+    /// Allows the engine to commence excecution.
     pub fn run(&mut self) {
         // get swapchain and images
         let dimensions: [u32; 2] = self.surface.window().inner_size().into();

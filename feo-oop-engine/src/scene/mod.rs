@@ -42,7 +42,8 @@ use {
     winit::event::Event
 };
 
-#[derive(Clone, Parent, Drawable, Debug)] // note remove parent bc you should never be able to access Scene as mutable
+/// A scene in which GameObjects can exist.
+#[derive(Clone, Parent, Drawable, Debug)]
 pub struct Scene {
     pub worldspace: Space,
     pub children: Vec<Arc<RwLock<dyn GameObject>>>,
@@ -52,6 +53,14 @@ pub struct Scene {
 impl Scene {
     const NAME: &'static str = "Scene";
 
+    /// Create a new Scene.
+    /// # Arguments
+    /// * `worldspace` - The mathematical space off of which you will work.
+    /// # Examples
+    /// ```no_run
+    /// # use feo_oop_engine::scene::Scene;
+    /// let scene = Scene::new(None); // Creates a new scene with a default worldspace.
+    /// ```
     pub fn new(worldspace: Option<Space>) -> Arc<RwLock<Self>>{
         Arc::new(RwLock::new(Scene{
             worldspace: worldspace.unwrap_or_else(|| Space::new(None, None, None)),
@@ -60,6 +69,9 @@ impl Scene {
         }))
     }
     
+    /// Sets the main camera of the Scene.
+    /// # Arguments
+    /// * `main_camera` - The new main camera.
     pub fn set_main_camera(&mut self, main_camera: Arc<RwLock<impl Camera>>){
         self.main_camera = Some(main_camera as Arc<RwLock<dyn Camera>>);
         // let temp = main_camera.clone();
@@ -68,6 +80,7 @@ impl Scene {
         // unsafe{self.replace_child( main_camera.clone(), main_camera.clone()).unwrap();}
     }
 
+    /// [backend] Spawns the core scripts. i.e. Spawn start and frame. 
     pub fn spawn_script_cores(&self, spawner: Spawner){
         self.children.clone().into_iter().for_each(|game_object| {
             let game_object_template = game_object.clone();
@@ -78,6 +91,7 @@ impl Scene {
         // main_camera_template.clone().write().unwrap().spawn_script_core( main_camera_gameobject, spawner);
     }
     
+    /// [backend] Spawns the event_handler of the scripts.
     pub fn spawn_script_handlers(&self, spawner: Spawner, event: Event<'static, UserEvent<Arc<dyn Any + Send + Sync>>>){
         self.children.clone().into_iter().for_each(|game_object| {
             game_object.clone().write().unwrap().spawn_script_handler(game_object, spawner.clone(), event.clone());
@@ -89,6 +103,7 @@ impl Scene {
         // write_lock.spawn_script_handler(main_camera_gameobject, spawner, event);
     }
 
+    /// [backend] Renders the scene.
     #[inline]
     pub fn render(&self,
             this: Arc<RwLock<Scene>>,

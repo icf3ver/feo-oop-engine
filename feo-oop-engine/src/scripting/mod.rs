@@ -1,6 +1,13 @@
 //! Scripting constructs
 //! 
-//! TODO
+//! Note that the macros are in ::Macro.
+//! 
+//! ## Workflow
+//! This library allows for the creation of scripts that govern 
+//! the behavior of game_objects. Once the run function is called, 
+//! it takes control of the thread until the window is closed. 
+//! During this time it is still possible to create new game-objects 
+//! and scripts that can be added to the scene.
 //! 
 
 use std::any::Any;
@@ -34,6 +41,7 @@ pub mod executor;
 pub mod swap;
 
 
+/// A trait that provides scriptable functionality.
 pub trait Scriptable {
     fn spawn_script_core(&mut self, this: Arc<RwLock<dyn GameObject>>, spawner: Spawner); // TODO: return result 
     fn spawn_script_handler(&mut self, this: Arc<RwLock<dyn GameObject>>, spawner: Spawner, event: Event<'static, UserEvent<Arc<dyn Any + Send + Sync>>>);
@@ -45,6 +53,7 @@ pub type BoxedStartFn<T> = Pin<Box<fn(Arc<RwLock<T>>, EngineGlobals) -> BoxFutur
 pub type BoxedFrameFn<T> = Pin<Box<fn(Arc<RwLock<T>>, EngineGlobals) -> BoxFuture<'static, Swap>>>;
 pub type BoxedEventHandlerFn<T> = Pin<Box<fn(Arc<RwLock<T>>, EngineGlobals, Event<'static, UserEvent<Arc<dyn Any + Send + Sync>>>) -> BoxFuture<'static, Swap>>>;
 
+/// A struct that provides a container for a scripts datatypes.
 pub struct Script<T> where T: ?Sized + Send + 'static{
     pub has_started: bool,
     pub globals: Option<Box<dyn Global>>,
@@ -95,6 +104,7 @@ impl<T> Clone for Script<T> where T: Clone + Send + 'static{
     }
 }
 
+/// [backend] Creates a new executor and spawner for managing the asynchronous scripts. (TODO move to executor) 
 pub fn new_executor_and_spawner(engine_globals: EngineGlobals) -> (Executor, Spawner) {
     const MAX_QUEUED_TASKS: usize = 10_000;
     let (task_sender, queue) = sync_channel(MAX_QUEUED_TASKS);

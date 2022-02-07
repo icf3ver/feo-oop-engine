@@ -1,13 +1,12 @@
 //! GLSL Shaders
 //! 
-//! TODO
-//! 
+//! TODO convert to SPIR-V (in this patch)
 
 /// vertex shader that parses a model
 pub(crate) mod vs_draw {
     vulkano_shaders::shader! {
         ty: "vertex",
-        path: "./src/shaders/draw/vs_draw.glsl"
+        path: "./src/shaders/draw/vs_draw.vert"
     }
 }
 
@@ -15,15 +14,7 @@ pub(crate) mod vs_draw {
 pub(crate) mod fs_draw {
     vulkano_shaders::shader! {
         ty: "fragment",
-        path: "./src/shaders/draw/fs_draw.glsl"
-    }
-}
-
-/// vertex shader for light systems
-pub(crate) mod vs_lighting_point {
-    vulkano_shaders::shader! {
-        ty: "vertex",
-        path: "./src/shaders/lighting/vs_lighting_point.glsl"
+        path: "./src/shaders/draw/fs_draw.frag"
     }
 }
 
@@ -31,7 +22,7 @@ pub(crate) mod vs_lighting_point {
 pub(crate) mod vs_lighting {
     vulkano_shaders::shader! {
         ty: "vertex",
-        path: "./src/shaders/lighting/vs_lighting.glsl"
+        path: "./src/shaders/lighting/vs_lighting.vert"
     }
 }
 
@@ -39,7 +30,7 @@ pub(crate) mod vs_lighting {
 pub(crate) mod fs_lighting_point {
     vulkano_shaders::shader! {
         ty: "fragment",
-        path: "./src/shaders/lighting/fs_lighting_point.glsl"
+        path: "./src/shaders/lighting/fs_lighting_point.frag"
     }
 }
 
@@ -47,7 +38,7 @@ pub(crate) mod fs_lighting_point {
 pub(crate) mod fs_lighting_directional {
     vulkano_shaders::shader! {
         ty: "fragment",
-        path: "./src/shaders/lighting/fs_lighting_directional.glsl"
+        path: "./src/shaders/lighting/fs_lighting_directional.frag"
     }
 }
 
@@ -55,6 +46,6 @@ pub(crate) mod fs_lighting_directional {
 pub(crate) mod fs_lighting_ambient {
     vulkano_shaders::shader! {
         ty: "fragment",
-        path: "./src/shaders/lighting/fs_lighting_ambient.glsl"
+        path: "./src/shaders/lighting/fs_lighting_ambient.frag"
     }
 }

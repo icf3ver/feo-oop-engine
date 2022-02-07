@@ -1,10 +1,8 @@
 //! Constructs used for progress bar
-//! 
-//! TODO
-//! 
 use std::{io::{Stdout, Write}};
 use colored::*;
 
+/// Shows a progress bar while preparing the models.
 pub async fn progress_bar(
         stdout: &mut Stdout, 
         file_name: &str, 

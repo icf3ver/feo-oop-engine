@@ -1,7 +1,4 @@
-//! Constructs used for prompting for a physical device.
-//! 
-//! TODO
-//! 
+//! Constructs used for prompting for a physical device
 use std::sync::Arc;
 
 use vulkano::instance::{
@@ -11,7 +8,9 @@ use vulkano::instance::{
 };
 use colored::Colorize;
 
-
+/// Prompts for the physical device.
+/// 
+/// This function will display all the available devices and their ids
 pub fn prompt_physical_device(instance: &Arc<Instance>, index: Option<usize>) -> PhysicalDevice{
     let physical_devices = PhysicalDevice::enumerate(instance);
     match index {
