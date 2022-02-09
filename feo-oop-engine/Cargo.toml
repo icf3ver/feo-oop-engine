@@ -29,7 +29,7 @@ license = "MIT"
 
 # vulkano dependencies
 vulkano = "0.22.0"
-vulkano-shaders = "0.22.0"
+# vulkano-shaders = "0.22.0"
 winit = "0.24.0"
 vulkano-win = "0.22.0"
 
@@ -51,4 +51,4 @@ colored = "2.0.0"
 feo-math = "0.1.0"
 
 # macro dependencies
-feo-oop-engine-proc-macros = { version="0.0.4", features = ["full"] }
+feo-oop-engine-proc-macros = { path="../feo-oop-engine-proc-macros", features = ["full"] }
