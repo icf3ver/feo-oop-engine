@@ -1,7 +1,7 @@
 [package]
 name = "feo-oop-engine-proc-macros"
 authors = ["LittleTitan"]
-version = "0.0.4"
+version = "0.0.5"
 edition = "2021"
 
 description = "The proc macros for feo-oop-engine."

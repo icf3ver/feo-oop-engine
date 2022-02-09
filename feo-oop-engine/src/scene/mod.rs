@@ -80,7 +80,7 @@ impl Scene {
         // unsafe{self.replace_child( main_camera.clone(), main_camera.clone()).unwrap();}
     }
 
-    /// [backend] Spawns the core scripts. i.e. Spawn start and frame. 
+    /// \[backend\] Spawns the core scripts. i.e. Spawn start and frame. 
     pub fn spawn_script_cores(&self, spawner: Spawner){
         self.children.clone().into_iter().for_each(|game_object| {
             let game_object_template = game_object.clone();
@@ -91,7 +91,7 @@ impl Scene {
         // main_camera_template.clone().write().unwrap().spawn_script_core( main_camera_gameobject, spawner);
     }
     
-    /// [backend] Spawns the event_handler of the scripts.
+    /// \[backend\] Spawns the event_handler of the scripts.
     pub fn spawn_script_handlers(&self, spawner: Spawner, event: Event<'static, UserEvent<Arc<dyn Any + Send + Sync>>>){
         self.children.clone().into_iter().for_each(|game_object| {
             game_object.clone().write().unwrap().spawn_script_handler(game_object, spawner.clone(), event.clone());
@@ -103,7 +103,7 @@ impl Scene {
         // write_lock.spawn_script_handler(main_camera_gameobject, spawner, event);
     }
 
-    /// [backend] Renders the scene.
+    /// \[backend\] Renders the scene.
     #[inline]
     pub fn render(&self,
             this: Arc<RwLock<Scene>>,

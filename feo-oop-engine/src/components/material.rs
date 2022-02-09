@@ -29,7 +29,7 @@ use super::texture::Texture;
 
 
 /// A material is a construct that describes the color and 
-/// distortion of surface of a model.
+/// distortion of the surface of a model.
 #[derive(Debug, Clone)]
 pub struct Material{
     #[allow(dead_code)]

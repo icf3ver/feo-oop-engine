@@ -1,4 +1,4 @@
-//! [backend] Manages the async scripts.
+//! \[backend\] Manages the async scripts.
 use {
     super::{
         swap::Swap,

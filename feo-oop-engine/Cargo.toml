@@ -1,6 +1,6 @@
 [package]
 name = "feo-oop-engine"
-version = "0.0.4"
+version = "0.0.5"
 authors = ["LittleTitan"]
 edition = "2021"
 
@@ -51,4 +51,4 @@ colored = "2.0.0"
 feo-math = "0.1.0"
 
 # macro dependencies
-feo-oop-engine-proc-macros = { path="../feo-oop-engine-proc-macros", features = ["full"] }
+feo-oop-engine-proc-macros = { version="0.0.5", features = ["full"] }

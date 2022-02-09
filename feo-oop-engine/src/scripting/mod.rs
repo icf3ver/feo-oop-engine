@@ -104,7 +104,7 @@ impl<T> Clone for Script<T> where T: Clone + Send + 'static{
     }
 }
 
-/// [backend] Creates a new executor and spawner for managing the asynchronous scripts. (TODO move to executor) 
+/// \[backend\] Creates a new executor and spawner for managing the asynchronous scripts. (TODO move to executor) 
 pub fn new_executor_and_spawner(engine_globals: EngineGlobals) -> (Executor, Spawner) {
     const MAX_QUEUED_TASKS: usize = 10_000;
     let (task_sender, queue) = sync_channel(MAX_QUEUED_TASKS);
